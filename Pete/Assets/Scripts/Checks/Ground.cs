@@ -4,6 +4,7 @@ public class Ground : MonoBehaviour
 {
     private bool onGround;
     private float friction;
+    private PhysicsMaterial2D material;
 
     private void OnCollisionEnter2D(Collision2D other) 
     {
@@ -34,7 +35,7 @@ public class Ground : MonoBehaviour
 
     private void RetrieveFriction(Collision2D collision)
     {
-        PhysicsMaterial2D material = collision.rigidbody.sharedMaterial;
+        material = collision.rigidbody.sharedMaterial;
 
         friction = 0;
 
