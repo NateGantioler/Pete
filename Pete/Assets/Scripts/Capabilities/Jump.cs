@@ -26,12 +26,11 @@ public class Jump : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         ground = GetComponent<Ground>();
 
-        defaultGravityScale = 1f;        
+        defaultGravityScale = 1f; 
     }
 
     void Update()
     {
-        //True während Input, False wenn nicht
         desiredJump |= input.RetrieveJumpInput();
     }
 
