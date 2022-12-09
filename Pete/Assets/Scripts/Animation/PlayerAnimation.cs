@@ -13,7 +13,9 @@ public class PlayerAnimation : MonoBehaviour
         ATTACKUP,
         ATTACKDOWN,
         ATTACK1,
-        ATTACK2
+        ATTACK2,
+        UP,
+        DOWN
     }
 
     private static playerAnimationState animationState;
@@ -45,6 +47,9 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetBool("IDLE", false);
         animator.SetBool("JUMPING", false);
         animator.SetBool("FALLING", false);
+        animator.SetBool("UP", false);
+        animator.SetBool("DOWN", false);
+
         animator.SetBool(PlayerAnimationState.ToString(), state);
     }
 
@@ -58,6 +63,10 @@ public class PlayerAnimation : MonoBehaviour
                 animationState = playerAnimationState.FALLING;
             else if(body.velocity.x > 0 || body.velocity.x < 0)
                 animationState = playerAnimationState.RUNNING;
+            else if(Input.GetAxisRaw("Vertical") > 0)
+                animationState = playerAnimationState.UP;
+            else if(Input.GetAxisRaw("Vertical") < 0)
+                animationState = playerAnimationState.DOWN;
             else
                 animationState = playerAnimationState.IDLE;
         }
