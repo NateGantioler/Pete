@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 87872e79dd4f52040bdc3b5fb73b9d72
+guid: 30d9a59b470140542b0c7fd4d9032ff4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -105,12 +105,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pete-Idle-sheet_0
+      name: Pete-Attack-Up_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
+        width: 18
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -119,19 +119,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af6f33a6bc022144080714ece69e07a2
-      internalID: -1675028465
+      spriteID: ff4253e2b9a529342814b978172d29ad
+      internalID: 2013762995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pete-Idle-sheet_1
+      name: Pete-Attack-Up_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 18
         y: 0
-        width: 16
+        width: 18
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -140,19 +140,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c4455f50047cb54a8a883dbc27683f4
-      internalID: -638864914
+      spriteID: 6b2510e83ea985c4ca57ce2a5a4b619a
+      internalID: -1436434124
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pete-Idle-sheet_2
+      name: Pete-Attack-Up_2
       rect:
         serializedVersion: 2
-        x: 32
+        x: 36
         y: 0
-        width: 16
+        width: 18
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -161,19 +161,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edf60171eca4bb445afe4a2ac7eb5fad
-      internalID: 1038985493
+      spriteID: 8a8d9a36b4c701e45ba184458dbc9867
+      internalID: 2006360690
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pete-Idle-sheet_3
+      name: Pete-Attack-Up_3
       rect:
         serializedVersion: 2
-        x: 48
+        x: 54
         y: 0
-        width: 16
+        width: 18
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -182,19 +182,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58912bb444e127743b584026968e8568
-      internalID: 1904937379
+      spriteID: 48017e72951baed4993fa2f5c0175afd
+      internalID: -1854892324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pete-Idle-sheet_4
+      name: Pete-Attack-Up_4
       rect:
         serializedVersion: 2
-        x: 64
+        x: 72
         y: 0
-        width: 16
+        width: 18
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -203,19 +203,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccd2b1d6f07f04249859c7744c4a1fbe
-      internalID: 1542002658
+      spriteID: 175b0563cc0e3a04aa155dde8df91079
+      internalID: -747902861
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pete-Idle-sheet_5
+      name: Pete-Attack-Up_5
       rect:
         serializedVersion: 2
-        x: 80
+        x: 90
         y: 0
-        width: 16
+        width: 18
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -224,19 +224,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db38fbf38c9b0124bb064a6fd93ed3f7
-      internalID: 788869619
+      spriteID: 92a629a9a7c7ea94c8961005d411931b
+      internalID: 2083697582
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pete-Idle-sheet_6
+      name: Pete-Attack-Up_6
       rect:
         serializedVersion: 2
-        x: 96
+        x: 108
         y: 0
-        width: 16
+        width: 18
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -245,19 +245,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20c226d7ab5adda47891c042f59d7a67
-      internalID: -1252138844
+      spriteID: 50716f76435789745951cdcbcfdba34d
+      internalID: 1243283432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pete-Idle-sheet_7
+      name: Pete-Attack-Up_7
       rect:
         serializedVersion: 2
-        x: 112
+        x: 126
         y: 0
-        width: 16
+        width: 18
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -266,40 +266,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 665046a94833f5240af085d79c2488a4
-      internalID: 1187798483
+      spriteID: c67d879d17e2946408118b636a45e2d6
+      internalID: 1087068083
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pete-Idle-sheet_8
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aec5f3cccf838fc4fa5c31336a004de7
-      internalID: -1444803533
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pete-Idle-sheet_9
+      name: Pete-Attack-Up_8
       rect:
         serializedVersion: 2
         x: 144
         y: 0
-        width: 16
+        width: 18
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -308,19 +287,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cb71d7bacdbc6e45a4ec78e3e34c024
-      internalID: -1680652769
+      spriteID: ba57db0b977eed24c8f2c6301167e33f
+      internalID: -328264517
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pete-Idle-sheet_10
+      name: Pete-Attack-Up_9
       rect:
         serializedVersion: 2
-        x: 160
+        x: 162
         y: 0
-        width: 16
+        width: 18
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -329,29 +308,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0397f76a286df9b4f86bc2a16d5b2334
-      internalID: 1625630295
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pete-Idle-sheet_11
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16965e6a05cf0d642b4134d3dd665c9b
-      internalID: 570023282
+      spriteID: f45dff9e4e2f3a24bb3d547619817778
+      internalID: -580357231
       vertices: []
       indices: 
       edges: []
@@ -367,18 +325,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Pete-Idle-sheet_3: 1904937379
-      Pete-Idle-sheet_1: -638864914
-      Pete-Idle-sheet_8: -1444803533
-      Pete-Idle-sheet_2: 1038985493
-      Pete-Idle-sheet_6: -1252138844
-      Pete-Idle-sheet_7: 1187798483
-      Pete-Idle-sheet_9: -1680652769
-      Pete-Idle-sheet_11: 570023282
-      Pete-Idle-sheet_5: 788869619
-      Pete-Idle-sheet_10: 1625630295
-      Pete-Idle-sheet_4: 1542002658
-      Pete-Idle-sheet_0: -1675028465
+      Pete-Attack-Up_6: 1243283432
+      Pete-Attack-Up_7: 1087068083
+      Pete-Attack-Up_3: -1854892324
+      Pete-Attack-Up_2: 2006360690
+      Pete-Attack-Up_1: -1436434124
+      Pete-Attack-Up_9: -580357231
+      Pete-Attack-Up_8: -328264517
+      Pete-Attack-Up_4: -747902861
+      Pete-Attack-Up_5: 2083697582
+      Pete-Attack-Up_0: 2013762995
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

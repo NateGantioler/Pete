@@ -21,7 +21,8 @@ public class PlayerAnimation : MonoBehaviour
     private static playerAnimationState animationState;
     private Animator animator;
     private Rigidbody2D body;
-    private static bool isAttacking;
+    private bool isAttacking;
+    private int currentAttack;
 
     private void Awake() 
     {
@@ -29,19 +30,27 @@ public class PlayerAnimation : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public static void _changePlayerAnimationState(playerAnimationState PlayerAnimationState)
+    public void playerIsAttacking(playerAnimationState PlayerAnimationState)
     {
-        if(PlayerAnimationState == playerAnimationState.ATTACKUP ||
-        PlayerAnimationState == playerAnimationState.ATTACKDOWN ||
-        PlayerAnimationState == playerAnimationState.ATTACK1 ||
-        PlayerAnimationState == playerAnimationState.ATTACK2)
+        if(PlayerAnimationState == playerAnimationState.ATTACK1)
         {
-           isAttacking = true; 
+            if(currentAttack % 2 == 1)
+                PlayerAnimationState = playerAnimationState.ATTACK1;
+            else
+                PlayerAnimationState = playerAnimationState.ATTACK2;
+
+            currentAttack++;
         }
+        isAttacking = true; 
         animationState = PlayerAnimationState;
     }
 
-    public void changePlayerAnimationState(playerAnimationState PlayerAnimationState, bool state)
+    public void playerStoppedAttacking()
+    {
+        isAttacking = false;
+    }
+
+    private void changePlayerAnimationState(playerAnimationState PlayerAnimationState, bool state)
     {
         animator.SetBool("RUNNING", false);
         animator.SetBool("IDLE", false);
@@ -49,6 +58,10 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetBool("FALLING", false);
         animator.SetBool("UP", false);
         animator.SetBool("DOWN", false);
+        animator.SetBool("ATTACKUP", false);
+        animator.SetBool("ATTACKDOWN", false);
+        animator.SetBool("ATTACK1", false);
+        animator.SetBool("ATTACK2", false);
 
         animator.SetBool(PlayerAnimationState.ToString(), state);
     }
@@ -63,9 +76,9 @@ public class PlayerAnimation : MonoBehaviour
                 animationState = playerAnimationState.FALLING;
             else if(body.velocity.x > 0 || body.velocity.x < 0)
                 animationState = playerAnimationState.RUNNING;
-            else if(Input.GetAxisRaw("Vertical") > 0)
+            else if(Input.GetAxisRaw("Vertical") > 0.5)
                 animationState = playerAnimationState.UP;
-            else if(Input.GetAxisRaw("Vertical") < 0)
+            else if(Input.GetAxisRaw("Vertical") < -0.5)
                 animationState = playerAnimationState.DOWN;
             else
                 animationState = playerAnimationState.IDLE;
@@ -73,5 +86,4 @@ public class PlayerAnimation : MonoBehaviour
 
         changePlayerAnimationState(animationState, true);
     }
-
 }
