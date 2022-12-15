@@ -19,6 +19,8 @@ public class Move : MonoBehaviour
     private float acceleration;
     private bool onGround;
 
+    public bool canMove = true;
+
     private void Awake() 
     {
         body = GetComponent<Rigidbody2D>();
@@ -27,7 +29,14 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        direction.x = input.RetrieveMoveInput();
+        if(canMove)
+        {
+            direction.x = input.RetrieveMoveInput();
+        }
+        else
+        {
+            direction.x = body.velocity.x;
+        }
         desiredVelocity = new Vector2(direction.x, 0f) * Mathf.Max(maxSpeed - ground.GetFriction(), 0f);
     }
 

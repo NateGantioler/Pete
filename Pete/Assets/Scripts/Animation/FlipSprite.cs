@@ -20,12 +20,12 @@ public class FlipSprite : MonoBehaviour
     {
        if(body.velocity.x > 0)
        {
-            body.transform.localScale = new Vector3(standardScale, body.transform.localScale.y, body.transform.localScale.x);
+            _FlipSprite(1);
             spriteFlipped = false;
        }
        else if(body.velocity.x < 0)
        {
-            body.transform.localScale = new Vector3((-1) * standardScale, body.transform.localScale.y, body.transform.localScale.x);
+            _FlipSprite(-1);
             spriteFlipped = true;
        }
     }
@@ -33,5 +33,10 @@ public class FlipSprite : MonoBehaviour
     public bool isFlipped()
     {
         return spriteFlipped;
+    }
+
+    public void _FlipSprite(int flip)
+    {
+        body.transform.localScale = new Vector3(flip * standardScale, body.transform.localScale.y, body.transform.localScale.x);
     }
 }

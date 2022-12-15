@@ -26,6 +26,7 @@ public class MeleeAttackManager : MonoBehaviour
     private void Update()
     {
         CheckInput();
+        
     }
 
     private void CheckInput()
