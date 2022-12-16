@@ -10,7 +10,7 @@ public class EnemyAttack : MonoBehaviour
 
     public void DamagePlayer(Collider2D other) 
     {
-        if(currentAttackDelay < 0)
+        if(currentAttackDelay <= 0)
         {
             if(other.transform.localPosition.x < transform.localPosition.x)
             {

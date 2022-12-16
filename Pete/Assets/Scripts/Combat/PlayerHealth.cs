@@ -7,7 +7,8 @@ public class PlayerHealth : MonoBehaviour
     private Move move;
     private Rigidbody2D body;
 
-    [SerializeField] private int playerHP;
+    [SerializeField] private int maxPlayerHP;
+    private int playerHP;
 
     [SerializeField] private float kbForce;
     [SerializeField] private float kbTime;
@@ -17,6 +18,7 @@ public class PlayerHealth : MonoBehaviour
     {
         move = GetComponent<Move>(); 
         body = GetComponent<Rigidbody2D>();   
+        playerHP = maxPlayerHP;
     }
 
     private void Update()
@@ -37,5 +39,13 @@ public class PlayerHealth : MonoBehaviour
             body.velocity = new Vector2(kbForce, kbForce*7);
 
         kbCounter = kbTime;
+    }
+
+    public void HealPlayer(int healthAmount)
+    {
+        if(playerHP + healthAmount >= maxPlayerHP)
+        {
+            playerHP += healthAmount;
+        }
     }
 }

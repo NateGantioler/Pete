@@ -10,7 +10,7 @@ public class HealthPickup : MonoBehaviour
     {
         if(other.collider.CompareTag("Player"))
         {
-            //other.GetComponent<PlayerHealth>().HealPlayer(healingAmount);
+            other.collider.GetComponent<PlayerHealth>().HealPlayer(healingAmount);
             Destroy(gameObject);
         }  
     }
