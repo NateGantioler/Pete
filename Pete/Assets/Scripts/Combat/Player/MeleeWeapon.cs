@@ -15,7 +15,7 @@ public class MeleeWeapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) 
     {
-        if(collision.GetComponent<EnemyHealth>())
+        if(collision.GetComponent<EnemyHealth>() && !collision.isTrigger)
         {
             collision.GetComponent<EnemyHealth>().doDamage(weaponDamage);
             //Beim stehen bleiben kann man nur einmal angreifen weil OnTriggerEnter2D nur beim erstmaligen betreten funktioniert.
