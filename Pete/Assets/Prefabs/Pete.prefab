@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605b61f6e142d6b42bef5d4370338c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  down: 0
 --- !u!212 &455206557602704072
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -170,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605b61f6e142d6b42bef5d4370338c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  down: 1
 --- !u!212 &3167119284631250351
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -268,6 +270,9 @@ GameObject:
   - component: {fileID: 3743952060186220187}
   - component: {fileID: 3743952060186220180}
   - component: {fileID: 3743952060186220181}
+  - component: {fileID: 1631784715}
+  - component: {fileID: 1631784727}
+  - component: {fileID: 1631784728}
   m_Layer: 0
   m_Name: Pete
   m_TagString: Player
@@ -428,6 +433,7 @@ MonoBehaviour:
   maxSpeed: 6.5
   maxAcceleration: 100
   maxAirAcceleration: 100
+  canMove: 1
 --- !u!114 &3743952060186220186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,6 +527,48 @@ MonoBehaviour:
   meleeWeaponUp: {fileID: 4059726772133928307}
   meleeWeaponDown: {fileID: 3167119284631250345}
   meleeDamage: 1
+--- !u!114 &1631784715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3743952060186220160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 912ac3036164c1b4fa8c2fa696d9d4fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPlayerHP: 5
+  kbForce: 1.2
+  kbTime: 0.2
+--- !u!114 &1631784727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3743952060186220160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3235af54301a04e83577163430830c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kbTime: 0.2
+  kbVelocity: 15
+--- !u!114 &1631784728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3743952060186220160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5251442bd8ca5f40a3b7081904c1444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitColorTime: 0.2
 --- !u!1 &4059726772133928307
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,6 +615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605b61f6e142d6b42bef5d4370338c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  down: 0
 --- !u!212 &4059726772133928305
 SpriteRenderer:
   m_ObjectHideFlags: 0

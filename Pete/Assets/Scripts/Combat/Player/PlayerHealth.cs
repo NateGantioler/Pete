@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
     private Move move;
     private Rigidbody2D body;
+    private KnockbackTrigger knockbackTrigger;
+    [SerializeField] TextMeshProUGUI healthText;
 
     [SerializeField] private int maxPlayerHP;
     private int playerHP;
@@ -17,8 +20,10 @@ public class PlayerHealth : MonoBehaviour
     private void Start() 
     {
         move = GetComponent<Move>(); 
-        body = GetComponent<Rigidbody2D>();   
+        body = GetComponent<Rigidbody2D>();
+        knockbackTrigger = GetComponent<KnockbackTrigger>();   
         playerHP = maxPlayerHP;
+        RefreshHealthUi();
     }
 
     private void Update()
@@ -30,15 +35,13 @@ public class PlayerHealth : MonoBehaviour
             move.canMove = true;
     }
 
-    public void PlayerDamage(int damage, bool kbRight)
+    public void PlayerDamage(int damage, Transform kbOrigin)
     {
         playerHP -= damage;
-        if(kbRight)
-            body.velocity = new Vector2(-kbForce, kbForce*7);
-        else   
-            body.velocity = new Vector2(kbForce, kbForce*7);
-
+        GetComponent<HitColor>().ChangeToHitColor();
         kbCounter = kbTime;
+        knockbackTrigger.Knockback(kbOrigin);
+        RefreshHealthUi();
     }
 
     public void HealPlayer(int healthAmount)
@@ -47,5 +50,11 @@ public class PlayerHealth : MonoBehaviour
         {
             playerHP += healthAmount;
         }
+        RefreshHealthUi();
+    }
+
+    private void RefreshHealthUi()
+    {
+        healthText.text = "" + playerHP;
     }
 }

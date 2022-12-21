@@ -12,14 +12,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if(currentAttackDelay <= 0)
         {
-            if(other.transform.localPosition.x < transform.localPosition.x)
-            {
-                other.gameObject.GetComponent<PlayerHealth>().PlayerDamage(damage, true);
-            }
-            else
-            {
-                other.gameObject.GetComponent<PlayerHealth>().PlayerDamage(damage, false);
-            }
+            other.gameObject.GetComponent<PlayerHealth>().PlayerDamage(damage, transform);
             currentAttackDelay = attackDelay; 
         }
     }

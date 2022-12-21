@@ -6,6 +6,7 @@ public class MeleeWeapon : MonoBehaviour
 {
    private int weaponDamage;
    private Component parentTransform;
+   [SerializeField] private bool down;
 
     private void Awake() 
     {
@@ -17,7 +18,7 @@ public class MeleeWeapon : MonoBehaviour
     {
         if(collision.GetComponent<EnemyHealth>() && !collision.isTrigger)
         {
-            collision.GetComponent<EnemyHealth>().doDamage(weaponDamage);
+            collision.GetComponent<EnemyHealth>().doDamage(weaponDamage, transform, down);
             //Beim stehen bleiben kann man nur einmal angreifen weil OnTriggerEnter2D nur beim erstmaligen betreten funktioniert.
             //Absolut schrecklicher weg das Problem zu lösen
             parentTransform.transform.localPosition = new Vector3(parentTransform.transform.localPosition.x, parentTransform.transform.localPosition.y + 0.00001f, parentTransform.transform.localPosition.z);

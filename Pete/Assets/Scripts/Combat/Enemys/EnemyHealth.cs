@@ -8,15 +8,19 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField]private bool damageable = true;
     [SerializeField]private int healthAmount = 1;
     [SerializeField]private float invulnerabilityTime = .2f;
+    [SerializeField]private bool isEnemy;
     private bool hit;
     private int currentHealth;
+    private Animator animator;
+    private KnockbackTrigger knockbackTrigger;
 
     private void Start()
     {
-        currentHealth = healthAmount;    
+        currentHealth = healthAmount;
+        knockbackTrigger = GetComponent<KnockbackTrigger>();   
     }
 
-    public void doDamage(int amount)
+    public void doDamage(int amount, Transform kbOrigin, bool isDown)
     {
         if (damageable && !hit && currentHealth > 0)
         {
@@ -25,12 +29,23 @@ public class EnemyHealth : MonoBehaviour
 
             if (currentHealth <= 0)
             {
-                currentHealth = 0;
-                gameObject.SetActive(false);
+                Death();
             }
             else
             {
                 StartCoroutine(TurnOffHit());
+                if(isEnemy)
+                {
+                    if(isDown)
+                    {
+                        knockbackTrigger.ReverseKnockback(kbOrigin);
+                    }
+                    else
+                    {
+                        knockbackTrigger.Knockback(kbOrigin);
+                    }
+                    GetComponent<HitColor>().ChangeToHitColor();
+                }
             }
         }
     }
@@ -39,5 +54,33 @@ public class EnemyHealth : MonoBehaviour
     {
         yield return new WaitForSeconds(invulnerabilityTime);
         hit = false;
+    }
+
+    private void Death()
+    {
+        currentHealth = 0;
+        if(isEnemy)
+        {
+            GetComponent<Animator>().SetTrigger("dead"); 
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            GetComponent<EnemyAttack>().enabled = false;
+            if(GetComponent<EnemyWalking>())
+            {
+                GetComponent<EnemyWalking>().enabled = false;
+            }
+            if(GetComponent<EnemyChase>())
+            {
+                GetComponent<EnemyChase>().enabled = false;
+            }
+        }
+        else
+        {
+            DisableEnemy();
+        }
+    }
+
+    public void DisableEnemy()
+    {
+        gameObject.SetActive(false);
     }
 }

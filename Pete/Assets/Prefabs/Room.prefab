@@ -77,7 +77,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4389730384116004685}
   - component: {fileID: 4389730384116004686}
-  - component: {fileID: 4389730384116004684}
+  - component: {fileID: 123787548}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -130,7 +130,7 @@ PolygonCollider2D:
       - {x: -13.645117, y: 8.366985}
       - {x: -13.723378, y: -8.370261}
       - {x: 15.793062, y: -8.287474}
---- !u!114 &4389730384116004684
+--- !u!114 &123787548
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,10 +139,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4389730384116004687}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da7a78d24a97a604f926965ac20e2873, type: 3}
+  m_Script: {fileID: 11500000, guid: 65ee6e944b77b044c9fa263d4fab9083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 4389730384734478216}
+  vCam: {fileID: 4389730384734478216}
 --- !u!1 &4389730384734478216
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +160,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4389730384734478214
 Transform:
   m_ObjectHideFlags: 0
