@@ -46,7 +46,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void HealPlayer(int healthAmount)
     {
-        if(playerHP + healthAmount >= maxPlayerHP)
+        if(playerHP + healthAmount <= maxPlayerHP)
         {
             playerHP += healthAmount;
         }

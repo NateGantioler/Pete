@@ -17,7 +17,7 @@ public class EnemyHealth : MonoBehaviour
     private void Start()
     {
         currentHealth = healthAmount;
-        knockbackTrigger = GetComponent<KnockbackTrigger>();   
+        knockbackTrigger = GetComponent<KnockbackTrigger>(); 
     }
 
     public void doDamage(int amount, Transform kbOrigin, bool isDown)
@@ -30,6 +30,10 @@ public class EnemyHealth : MonoBehaviour
             if (currentHealth <= 0)
             {
                 Death();
+                if(isEnemy)
+                {    
+                   
+                }
             }
             else
             {
@@ -44,6 +48,7 @@ public class EnemyHealth : MonoBehaviour
                     {
                         knockbackTrigger.Knockback(kbOrigin);
                     }
+
                     GetComponent<HitColor>().ChangeToHitColor();
                 }
             }
@@ -64,6 +69,7 @@ public class EnemyHealth : MonoBehaviour
             GetComponent<Animator>().SetTrigger("dead"); 
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             GetComponent<EnemyAttack>().enabled = false;
+            GetComponent<HealthDrop>().EnemyDrop();
             if(GetComponent<EnemyWalking>())
             {
                 GetComponent<EnemyWalking>().enabled = false;
