@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 9196888360931342856}
   - component: {fileID: 9196888360931342862}
   - component: {fileID: 9196888360931342863}
+  - component: {fileID: 6383789654802544689}
   m_Layer: 0
   m_Name: Spider
   m_TagString: Untagged
@@ -257,3 +258,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitColorTime: 0.2
+--- !u!114 &6383789654802544689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196888360931343089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd80da85f52f573439a09444e3d06be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPickup: {fileID: 5359901880004171527, guid: f6b672f59940e8b4d8a9da0c86cbe8ae, type: 3}
+  chance: 1
