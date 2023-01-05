@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] TextMeshProUGUI healthText;
 
     [SerializeField] private int maxPlayerHP;
-    private int playerHP;
+    private int playerHP = 5;
 
     [SerializeField] private float kbForce;
     [SerializeField] private float kbTime;
@@ -33,6 +34,15 @@ public class PlayerHealth : MonoBehaviour
             move.canMove = false;
         else
             move.canMove = true;
+     
+    }
+
+    private void CheckIfPlayerIsDead()
+    {
+        if(playerHP <= 0)
+        {
+            Death();
+        }
     }
 
     public void PlayerDamage(int damage, Transform kbOrigin)
@@ -42,6 +52,7 @@ public class PlayerHealth : MonoBehaviour
         kbCounter = kbTime;
         knockbackTrigger.Knockback(kbOrigin);
         RefreshHealthUi();
+        CheckIfPlayerIsDead();
     }
 
     public void HealPlayer(int healthAmount)
@@ -56,5 +67,10 @@ public class PlayerHealth : MonoBehaviour
     private void RefreshHealthUi()
     {
         healthText.text = "" + playerHP;
+    }
+
+    private void Death()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
