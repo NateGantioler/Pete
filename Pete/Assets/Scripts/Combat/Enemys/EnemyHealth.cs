@@ -66,10 +66,12 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = 0;
         if(isEnemy)
         {
-            GetComponent<Animator>().SetTrigger("dead"); 
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             GetComponent<EnemyAttack>().enabled = false;
             GetComponent<HealthDrop>().EnemyDrop();
+            GetComponents<BoxCollider2D>()[0].enabled = false;
+            GetComponents<BoxCollider2D>()[1].enabled = false;
+            
             if(GetComponent<EnemyWalking>())
             {
                 GetComponent<EnemyWalking>().enabled = false;
@@ -78,6 +80,7 @@ public class EnemyHealth : MonoBehaviour
             {
                 GetComponent<EnemyChase>().enabled = false;
             }
+            GetComponent<Animator>().SetTrigger("dead"); 
         }
         else
         {
