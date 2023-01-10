@@ -71,6 +71,6 @@ public class PlayerHealth : MonoBehaviour
 
     private void Death()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        LevelReset.RESETLEVEL();
     }
 }

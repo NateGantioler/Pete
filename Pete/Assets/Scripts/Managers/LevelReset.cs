@@ -9,11 +9,11 @@ public class LevelReset : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.R))
         {
-            ResetLevel();
+            RESETLEVEL();
         }
     }
 
-    private void ResetLevel()
+    public static void RESETLEVEL()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

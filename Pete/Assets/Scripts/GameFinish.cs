@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class GameFinish : MonoBehaviour
 {
-    [SerializeField] GameObject gameFinished;
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if(other.CompareTag("Player"))
@@ -19,6 +18,7 @@ public class GameFinish : MonoBehaviour
 
     private void GameFinished()
     {
+        GameObject.FindGameObjectWithTag("TimerManager").GetComponent<TimerManager>().StopTimer();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 }
