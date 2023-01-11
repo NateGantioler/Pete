@@ -11,6 +11,10 @@ public class LevelReset : MonoBehaviour
         {
             RESETLEVEL();
         }
+        if(Input.GetButton("Reset"))
+        {
+            RESETLEVEL();
+        }
     }
 
     public static void RESETLEVEL()
