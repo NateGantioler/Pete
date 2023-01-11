@@ -7,7 +7,7 @@ public class TimerManager : MonoBehaviour
 {
     //Timer
     [SerializeField] private TMP_Text timerText;
-    [SerializeField] private StoreTimer storeTimer;
+    private StoreTimer storeTimer;
     private float currentTime;
     private bool timerOn;
 
@@ -23,6 +23,7 @@ public class TimerManager : MonoBehaviour
 
     private void Start()
     {
+        storeTimer = GameObject.FindGameObjectWithTag("storeTimer").GetComponent<StoreTimer>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         playerXpos = playerTransform.position.x; 
     }

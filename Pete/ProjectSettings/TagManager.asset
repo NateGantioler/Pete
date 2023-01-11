@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - FinishTimeText
   - TimerManager
+  - DontDestroyOnLoad
+  - storeTimer
   layers:
   - Default
   - TransparentFX
