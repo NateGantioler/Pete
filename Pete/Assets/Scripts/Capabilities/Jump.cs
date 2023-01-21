@@ -103,6 +103,7 @@ public class Jump : MonoBehaviour
                 jumpSpeed = Mathf.Max(jumpSpeed - velocity.y, 0f); 
             }
             velocity.y += jumpSpeed;
+            AudioManager.Instance.PlaySound(AudioManager.Instance.S_Jump);
          }       
     }
 }

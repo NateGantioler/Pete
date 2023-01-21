@@ -48,6 +48,7 @@ public class PlayerHealth : MonoBehaviour
     public void PlayerDamage(int damage, Transform kbOrigin)
     {
         playerHP -= damage;
+        AudioManager.Instance.PlaySound(AudioManager.Instance.S_Hit);
         GetComponent<HitColor>().ChangeToHitColor();
         kbCounter = kbTime;
         knockbackTrigger.Knockback(kbOrigin);
