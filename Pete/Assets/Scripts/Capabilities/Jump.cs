@@ -18,7 +18,7 @@ public class Jump : MonoBehaviour
 
     private int jumpPhase;
     private float defaultGravityScale, jumpSpeed, coyoteCounter, jumpBufferCounter;
-    private bool desiredJump, onGround, isJumping;
+    private bool desiredJump, onGround, isJumping, hasLanded;
 
 
     void Awake()
@@ -45,6 +45,11 @@ public class Jump : MonoBehaviour
             jumpPhase = 0;
             coyoteCounter = coyoteTime;
             isJumping = false;
+            if(!hasLanded)
+            {
+                AudioManager.Instance.PlaySound(AudioManager.Instance.S_Landing);
+                hasLanded = true;
+            }
         }
         else
         {
@@ -97,6 +102,7 @@ public class Jump : MonoBehaviour
             coyoteCounter = 0f;
             jumpSpeed = Mathf.Sqrt(-2f * Physics2D.gravity.y * jumpHeight);
             isJumping = true;
+            hasLanded = false;
 
             if(velocity.y > 0f)
             {
