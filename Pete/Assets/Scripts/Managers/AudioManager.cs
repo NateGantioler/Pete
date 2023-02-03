@@ -1,31 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance {get; private set; } //Instance des Audiomanagers
 
-    //Variables for all of the SoundEffect Prefabs
-    public GameObject S_Jump, S_FlyOrb, S_HitMarker, S_Hit, S_Landing;
+    //Array for all the SoundEffects
+    public Sound[] sounds;
 
     //Function to Instantiate the SoundEffects
-    public void PlaySound(GameObject soundEffect)
+    public void PlaySound(string name)
     {
-        GameObject _SoundObject = Instantiate(soundEffect, this.transform);
-        StartCoroutine(DestroySound(_SoundObject));
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if(s == null)
+        {
+            Debug.LogWarning("Sound '" + name + "' was not found!");
+            return;
+        }
+        s.source.Play();
     }    
 
-    //Function to Destroy the SoundEffects after a few Seconds1
-    private IEnumerator DestroySound(GameObject soundObject)
-    {
-        yield return new WaitForSeconds(3f);
-        Destroy(soundObject);
-    }
-
-    //Instance check
     private void Awake() 
     {
+        //Instance check
         if(Instance == null)
         {
             Instance = this;
@@ -33,6 +32,15 @@ public class AudioManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+
+        //Getting SoundEffects
+        foreach(Sound s in sounds)
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+            s.source.volume = s.volume;
+            s.source.pitch = s.pitch;
         }
     }
 }

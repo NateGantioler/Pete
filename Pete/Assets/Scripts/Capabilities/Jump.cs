@@ -47,7 +47,7 @@ public class Jump : MonoBehaviour
             isJumping = false;
             if(!hasLanded)
             {
-                AudioManager.Instance.PlaySound(AudioManager.Instance.S_Landing);
+                AudioManager.Instance.PlaySound("S_Landing");
                 hasLanded = true;
             }
         }
@@ -109,7 +109,7 @@ public class Jump : MonoBehaviour
                 jumpSpeed = Mathf.Max(jumpSpeed - velocity.y, 0f); 
             }
             velocity.y += jumpSpeed;
-            AudioManager.Instance.PlaySound(AudioManager.Instance.S_Jump);
+            AudioManager.Instance.PlaySound("S_Jump");
          }       
     }
 }

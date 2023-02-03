@@ -22,7 +22,7 @@ public class PowerUp : MonoBehaviour
         if(!hasGivenPower)
         {
             player.GetComponent<PowerStatus>().Powers++;
-            AudioManager.Instance.PlaySound(AudioManager.Instance.S_FlyOrb);
+            AudioManager.Instance.PlaySound("S_FlyOrb");
             hasGivenPower = true;
         }
         if(player.GetComponent<PowerStatus>().Powers == 1)
