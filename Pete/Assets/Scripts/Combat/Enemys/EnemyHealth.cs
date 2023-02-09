@@ -26,8 +26,15 @@ public class EnemyHealth : MonoBehaviour
         {
             hit = true;
             currentHealth -= amount;
-            AudioManager.Instance.PlaySound("S_HitMarker");
-
+            if(CompareTag("Secret"))
+            {
+                AudioManager.Instance.PlaySound("S_Fish");
+            }
+            else
+            {
+                AudioManager.Instance.PlaySound("S_HitMarker"); 
+            }
+            
             if (currentHealth <= 0)
             {
                 Death();

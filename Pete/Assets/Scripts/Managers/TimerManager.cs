@@ -9,7 +9,7 @@ public class TimerManager : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     private StoreTimer storeTimer;
     private float currentTime;
-    private bool timerOn;
+    public bool timerOn;
 
     //Player
     private float playerXpos;

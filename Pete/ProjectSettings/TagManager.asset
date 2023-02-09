@@ -10,6 +10,7 @@ TagManager:
   - TimerManager
   - DontDestroyOnLoad
   - storeTimer
+  - Secret
   layers:
   - Default
   - TransparentFX

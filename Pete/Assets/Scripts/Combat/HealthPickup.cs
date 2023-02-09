@@ -13,6 +13,7 @@ public class HealthPickup : MonoBehaviour
         {
             hasHealed = true;
             other.collider.GetComponent<PlayerHealth>().HealPlayer(healingAmount);
+            AudioManager.Instance.PlaySound("S_Pickup");
             Destroy(gameObject);
         }
     }

@@ -7,6 +7,8 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance {get; private set; } //Instance des Audiomanagers
 
+    [SerializeField, Range(0f, 4f)] float generalVolume = 1f;
+
     //Array for all the SoundEffects
     public Sound[] sounds;
 
@@ -19,6 +21,7 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound '" + name + "' was not found!");
             return;
         }
+        s.source.pitch = s.pitch + UnityEngine.Random.Range((-1) * s.pitchVariation, s.pitchVariation);
         s.source.Play();
     }    
 
@@ -38,8 +41,16 @@ public class AudioManager : MonoBehaviour
         foreach(Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
+        }
+        ReloadVolume();
+    }
+
+    public void ReloadVolume()
+    {
+        foreach(Sound s in sounds)
+        {
             s.source.clip = s.clip;
-            s.source.volume = s.volume;
+            s.source.volume = s.volume * generalVolume;
             s.source.pitch = s.pitch;
         }
     }

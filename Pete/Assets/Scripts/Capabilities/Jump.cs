@@ -20,18 +20,38 @@ public class Jump : MonoBehaviour
     private float defaultGravityScale, jumpSpeed, coyoteCounter, jumpBufferCounter;
     private bool desiredJump, onGround, isJumping, hasLanded;
 
+    private TimerManager timerManager;
+    private float currentTime;
+
 
     void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         ground = GetComponent<Ground>();
-
         defaultGravityScale = 1f; 
     }
 
     void Update()
     {
         desiredJump |= input.RetrieveJumpInput();
+        timerManager = GameObject.FindGameObjectWithTag("TimerManager").GetComponent<TimerManager>();
+    }
+
+    private void LandingSound(bool onGround)
+    {
+        if(onGround)
+        {
+            if(!hasLanded && timerManager.timerOn)
+            {
+                AudioManager.Instance.PlaySound("S_Landing");
+                hasLanded = true;
+            }
+        }
+        else
+        {
+            hasLanded = false;
+        }
+        
     }
 
     private void FixedUpdate() 
@@ -39,17 +59,14 @@ public class Jump : MonoBehaviour
         onGround = ground.GetOnGround();
         velocity = body.velocity;
 
+        LandingSound(onGround);
+
         if(onGround && body.velocity.y == 0)
         {
             //Variablen Resetten
             jumpPhase = 0;
             coyoteCounter = coyoteTime;
             isJumping = false;
-            if(!hasLanded)
-            {
-                AudioManager.Instance.PlaySound("S_Landing");
-                hasLanded = true;
-            }
         }
         else
         {
@@ -102,7 +119,7 @@ public class Jump : MonoBehaviour
             coyoteCounter = 0f;
             jumpSpeed = Mathf.Sqrt(-2f * Physics2D.gravity.y * jumpHeight);
             isJumping = true;
-            hasLanded = false;
+            timerManager.StartTimer();
 
             if(velocity.y > 0f)
             {
