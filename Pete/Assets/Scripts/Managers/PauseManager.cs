@@ -29,10 +29,15 @@ public class PauseManager : MonoBehaviour
         isPaused = true;
     }
 
-    private void Resume()
+    public void Resume()
     {
         pauseOverlay.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

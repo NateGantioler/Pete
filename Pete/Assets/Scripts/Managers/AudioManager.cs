@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance {get; private set; } //Instance des Audiomanagers
 
-    [SerializeField, Range(0f, 4f)] float generalVolume = 1f;
+    public float generalVolume = 1f;
 
     //Array for all the SoundEffects
     public Sound[] sounds;
@@ -45,12 +46,19 @@ public class AudioManager : MonoBehaviour
         ReloadVolume();
     }
 
+    public void ChangeGenralVolume(float newVolume)
+    {
+        generalVolume = newVolume;
+        ReloadVolume();
+    }
+
+
     public void ReloadVolume()
     {
         foreach(Sound s in sounds)
         {
             s.source.clip = s.clip;
-            s.source.volume = s.volume * generalVolume;
+            s.source.volume = s.volume * (generalVolume*2);
             s.source.pitch = s.pitch;
         }
     }
