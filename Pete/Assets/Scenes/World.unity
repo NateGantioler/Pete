@@ -3147,6 +3147,7 @@ Transform:
   - {fileID: 735915353}
   - {fileID: 640651805}
   - {fileID: 957561107}
+  - {fileID: 1340722749}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3598,50 +3599,56 @@ MonoBehaviour:
   m_GameObject: {fileID: 640651804}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05776f06565acc34fa846e6df7ac9d1a, type: 3}
+  m_Script: {fileID: 11500000, guid: 09087ea5d778bf74a92b318658ffc1f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   generalVolume: 1
   sounds:
-  - name: S_FlyOrb
+  - name: O_FlyOrb
     clip: {fileID: 8300000, guid: 433c2555c3ad95e41abeb81779d2287d, type: 3}
     volume: 0.5
     pitch: 1
     pitchVariation: 0.15
     source: {fileID: 0}
-  - name: S_Hit
+  - name: P_Hit
     clip: {fileID: 8300000, guid: 6b3b71ee0b76d5e419c61a58fb85548c, type: 3}
     volume: 0.5
     pitch: 1
     pitchVariation: 0.15
     source: {fileID: 0}
-  - name: S_HitMarker
+  - name: E_Hit
     clip: {fileID: 8300000, guid: 05d53725fe706d34a8e382f4f742b55a, type: 3}
     volume: 0.5
     pitch: 1
     pitchVariation: 0.15
     source: {fileID: 0}
-  - name: S_Jump
+  - name: P_Jump
     clip: {fileID: 8300000, guid: 385b198bad7fd48418c02dbf37700966, type: 3}
     volume: 0.5
     pitch: 1
     pitchVariation: 0.15
     source: {fileID: 0}
-  - name: S_Landing
+  - name: P_Landing
     clip: {fileID: 8300000, guid: 78b43f4107aef98418c108ce432561e4, type: 3}
     volume: 0
     pitch: 1
     pitchVariation: 0.15
     source: {fileID: 0}
-  - name: S_Fish
+  - name: O_Fish
     clip: {fileID: 8300000, guid: c3064ed1dff35d94eb5ba885f068219c, type: 3}
     volume: 0.802
     pitch: 1
     pitchVariation: 0.15
     source: {fileID: 0}
-  - name: S_Pickup
+  - name: O_HealthPickup
     clip: {fileID: 8300000, guid: d9ce56a2b1874dd4d91a42b813602bac, type: 3}
     volume: 0.465
+    pitch: 1
+    pitchVariation: 0.15
+    source: {fileID: 0}
+  - name: P_Swing
+    clip: {fileID: 8300000, guid: dbeaa2122434f1a4bb1c35e2c382fcf3, type: 3}
+    volume: 0.551
     pitch: 1
     pitchVariation: 0.15
     source: {fileID: 0}
@@ -59128,6 +59135,192 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4389730384116004685, guid: 2249f30abd6a08f4faa0b4e2fd272ad7, type: 3}
   m_PrefabInstance: {fileID: 1815785431}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1340722748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1340722749}
+  - component: {fileID: 1340722751}
+  - component: {fileID: 1340722750}
+  m_Layer: 0
+  m_Name: MusicManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1340722749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340722748}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 556308713}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1340722750
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340722748}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1340722751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340722748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 257bda8e55d788f4f9d9b98aaf29ecd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenuMusic:
+    name: Gravatate Menu
+    clip: {fileID: 8300000, guid: c8f453ccadb1cbf4db18eabac56f2b8d, type: 3}
+    volume: 0.5
+    pitch: 1
+    pitchVariation: 0
+    source: {fileID: 0}
+  finishMusic:
+    name: Shovel Cat Theme
+    clip: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    pitchVariation: 0
+    source: {fileID: 0}
+  musicTracks:
+  - name: Shovel Cat Drum
+    clip: {fileID: 8300000, guid: 93c7e5ab184a4b548a4828c96ba18e56, type: 3}
+    volume: 0.5
+    pitch: 1
+    pitchVariation: 0
+    source: {fileID: 0}
+  - name: Blossom
+    clip: {fileID: 8300000, guid: 99225003285d3424da75c6db687166ca, type: 3}
+    volume: 0.5
+    pitch: 1
+    pitchVariation: 0
+    source: {fileID: 0}
+  - name: Shovel Cat Main
+    clip: {fileID: 8300000, guid: b086a86ca62d68b42bd872667500b63b, type: 3}
+    volume: 0.5
+    pitch: 1
+    pitchVariation: 0
+    source: {fileID: 0}
+  - name: Shovel Cat Main
+    clip: {fileID: 8300000, guid: b086a86ca62d68b42bd872667500b63b, type: 3}
+    volume: 0.5
+    pitch: 1
+    pitchVariation: 0
+    source: {fileID: 0}
+  - name: Shovel Cat Main
+    clip: {fileID: 8300000, guid: b086a86ca62d68b42bd872667500b63b, type: 3}
+    volume: 0.5
+    pitch: 1
+    pitchVariation: 0
+    source: {fileID: 0}
 --- !u!1001 &1342118665
 PrefabInstance:
   m_ObjectHideFlags: 0

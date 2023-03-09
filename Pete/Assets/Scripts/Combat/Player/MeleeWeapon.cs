@@ -33,5 +33,6 @@ public class MeleeWeapon : MonoBehaviour
     private void OnEnable()
     {
         GetComponent<BoxCollider2D>().enabled = true;
+        AudioManager.Instance.PlaySound("P_Swing");
     }
 }

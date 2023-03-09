@@ -11,26 +11,25 @@ public class VolumeSlider : MonoBehaviour
 
     void Awake()
     {
-        if(!PlayerPrefs.HasKey("musicVolume"))
+        if(!PlayerPrefs.HasKey("soundVolume"))
         {
-            PlayerPrefs.SetFloat("musicVolume", 0.5f);
+            PlayerPrefs.SetFloat("soundVolume", 0.5f);
             LoadVolume();
         }
         else
         {
             LoadVolume();
         }
-
     }
 
     private void LoadVolume()
     {
-        volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        volumeSlider.value = PlayerPrefs.GetFloat("soundVolume");
     }
 
     private void SaveVolume()
     {
-        PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
+        PlayerPrefs.SetFloat("soundVolume", volumeSlider.value);
     }
 
     public void ChangeVolume() 

@@ -28,11 +28,11 @@ public class EnemyHealth : MonoBehaviour
             currentHealth -= amount;
             if(CompareTag("Secret"))
             {
-                AudioManager.Instance.PlaySound("S_Fish");
+                AudioManager.Instance.PlaySound("O_Fish");
             }
             else
             {
-                AudioManager.Instance.PlaySound("S_HitMarker"); 
+                AudioManager.Instance.PlaySound("E_Hit"); 
             }
             
             if (currentHealth <= 0)
