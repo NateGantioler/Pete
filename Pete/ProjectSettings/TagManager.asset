@@ -11,6 +11,7 @@ TagManager:
   - DontDestroyOnLoad
   - storeTimer
   - Secret
+  - MusicManager
   layers:
   - Default
   - TransparentFX

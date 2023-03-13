@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
-{
+{ 
     public static AudioManager Instance {get; private set; } //Instance des Audiomanagers
 
     public float generalVolume = 1f;

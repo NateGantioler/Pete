@@ -4,57 +4,72 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MusicManager : MonoBehaviour
-{
+{ 
+    public static MusicManager Instance {get; private set; } //Instance des Audiomanagers
+
     [SerializeField] private Sound mainMenuMusic;
     [SerializeField] private Sound finishMusic;
     [SerializeField] private Sound[] musicTracks;
     
     private AudioSource audioSource;
+    private Sound currentSong;
     private AudioClip lastPlayedSong;
+    
+    public float musicVolume;
 
     // Start is called before the first frame update
     void Start()
     {
+        //Instance check
+        if(Instance == null)
+        {
+            Instance = this;
+        }    
+        else
+        {
+            Destroy(gameObject);
+        }
+
         audioSource = GetComponent<AudioSource>();
+        SelectNewMusic();
     }
 
-    private AudioClip GetRandomMusic()
+    private Sound GetRandomMusic()
     {   
-        AudioClip audioClip;
+        Sound randomSong;
         do
         {
-            audioClip = musicTracks[Random.Range(0, musicTracks.Length)].clip;
-        }while(audioClip == lastPlayedSong);
+            randomSong = musicTracks[Random.Range(0, musicTracks.Length)];
+        }while(randomSong.clip == lastPlayedSong);
         
-        Debug.Log(audioClip);
-        return audioClip;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(!audioSource.isPlaying)
-        {
-            SelectNewMusic();
-        }
+        return randomSong;
     }
 
     void SelectNewMusic()
     {
         if(SceneManager.GetActiveScene().buildIndex == 0)
         {
-            audioSource.clip = mainMenuMusic.clip;
+            currentSong = mainMenuMusic;
         }
         else if(SceneManager.GetActiveScene().buildIndex != SceneManager.sceneCountInBuildSettings-1)
         {
-            audioSource.clip = GetRandomMusic();
+            currentSong = GetRandomMusic();
         }
         else if(SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings-1)
         {
-            audioSource.clip = finishMusic.clip;
+            currentSong = finishMusic;
         }
 
+        audioSource.clip = currentSong.clip;
+        ReloadVolume();
         audioSource.Play();
         lastPlayedSong = audioSource.clip;
+
+        Invoke("SelectNewMusic", currentSong.clip.length + 3);
+    }
+
+    public void ReloadVolume()
+    {
+        audioSource.volume = currentSong.volume * musicVolume;
     }
 }

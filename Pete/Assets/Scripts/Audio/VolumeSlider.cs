@@ -7,7 +7,7 @@ public class VolumeSlider : MonoBehaviour
 {
 
     [SerializeField] private Slider volumeSlider;
-    private AudioManager audioManager;
+    private MusicManager musicManager; 
 
     void Awake()
     {
@@ -32,8 +32,14 @@ public class VolumeSlider : MonoBehaviour
         PlayerPrefs.SetFloat("soundVolume", volumeSlider.value);
     }
 
-    public void ChangeVolume() 
+    public void ChangeSoundVolume() 
     {
         AudioManager.Instance.ChangeGenralVolume(volumeSlider.value);
+    }
+
+    public void ChangeMusicVolume()
+    {
+        MusicManager.Instance.musicVolume = volumeSlider.value;
+        MusicManager.Instance.ReloadVolume();
     }
 }
