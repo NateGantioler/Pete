@@ -6,40 +6,71 @@ using UnityEngine.UI;
 public class VolumeSlider : MonoBehaviour
 {
 
-    [SerializeField] private Slider volumeSlider;
-    private MusicManager musicManager; 
+    [SerializeField] private Slider soundSlider;
+    [SerializeField] private Slider musicSlider;
 
     void Awake()
+    {
+        CheckSoundVolume();
+        CheckMusicVolume();
+    }
+
+    private void CheckSoundVolume()
     {
         if(!PlayerPrefs.HasKey("soundVolume"))
         {
             PlayerPrefs.SetFloat("soundVolume", 0.5f);
-            LoadVolume();
+            LoadSoundVolume();
         }
         else
         {
-            LoadVolume();
+            LoadSoundVolume();
         }
     }
 
-    private void LoadVolume()
+    private void CheckMusicVolume()
     {
-        volumeSlider.value = PlayerPrefs.GetFloat("soundVolume");
+        if(!PlayerPrefs.HasKey("musicVolume"))
+        {
+            PlayerPrefs.SetFloat("musicVolume", 0.5f);
+            LoadMusicVolume();
+        }
+        else
+        {
+            LoadMusicVolume();
+        }
     }
 
-    private void SaveVolume()
+    private void LoadSoundVolume()
     {
-        PlayerPrefs.SetFloat("soundVolume", volumeSlider.value);
+        soundSlider.value = PlayerPrefs.GetFloat("soundVolume");
+    }
+
+    private void LoadMusicVolume()
+    {
+        musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
+    }
+
+    private void SaveSoundVolume()
+    {
+        PlayerPrefs.SetFloat("soundVolume", soundSlider.value);
+    }
+
+    private void SaveMusicVolume()
+    {
+        PlayerPrefs.SetFloat("musicVolume", musicSlider.value);
     }
 
     public void ChangeSoundVolume() 
     {
-        AudioManager.Instance.ChangeGenralVolume(volumeSlider.value);
+        SaveSoundVolume();
+        AudioManager.Instance.ChangeGenralVolume(soundSlider.value);
     }
 
     public void ChangeMusicVolume()
     {
-        MusicManager.Instance.musicVolume = volumeSlider.value;
+        SaveMusicVolume();
+        MusicManager.Instance.musicVolume = musicSlider.value;
         MusicManager.Instance.ReloadVolume();
     }
 }

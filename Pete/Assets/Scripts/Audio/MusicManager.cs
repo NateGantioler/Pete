@@ -16,7 +16,7 @@ public class MusicManager : MonoBehaviour
     private AudioClip lastPlayedSong;
     
     public float musicVolume;
-
+    
     // Start is called before the first frame update
     void Start()
     {
